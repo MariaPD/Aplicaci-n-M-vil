@@ -1,0 +1,153 @@
+body {
+  background-color: #E5E4D7;
+  font-family: Century Gothic;
+}
+
+/* Home */
+
+/*.homeimage {
+  border: 10px solid #E5E4D7;
+  width: 100%;
+}
+button {
+  background-color: #92CD00;
+  color: #2C6700;
+  font-size: 3em;
+  font-weight: bold;
+  width: 100%;
+  height: 95px;
+}
+.menuimage {
+  width: 100%;
+}*/
+
+/* Games */
+
+h1 {
+  text-align: center;
+  color: #669966;
+  font-size: 50px;
+  font-weight: bold;
+}
+#teams {
+  align-content: flex-end;
+}
+.game {
+  display: flex;
+  justify-content: space-around;
+  background-color: #666666;
+  font-size: 18px;   
+  font-weight: bold;
+}
+.date {
+  padding: 10px 10px;
+  margin: 10px 5px;
+  background-color: #669966;
+  color: white;
+  text-align: center;
+  
+}
+.team {
+  padding: 10px 10px;
+  margin: 10px 5px;
+  background-color: #B6494A;
+  color: white;
+  
+}
+.location {
+  padding: 10px 10px;
+  margin: 10px 5px;
+  background-color: #3C86C3;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 42%;
+}
+/* Match */
+img {
+  width: 25%;
+  height: 25%;
+}
+iframe {
+  width: 100%;
+  margin: auto;
+  display: flex;
+/*  justify-content: center;*/
+}
+.match {
+  background-color: #CCCCCC;
+  display: flex;
+  justify-content: space-around;
+  color: #B6494A;
+  text-shadow: 1px 1px white;
+  font-weight: bold;
+  font-size: 24px;
+  align-items: center
+}
+.venue {
+  text-align: center;
+  color: #3C86C3;
+  font-weight: bold;
+  font-size: 30px;
+}
+.back {
+  background-color: #669966;
+  color: #E5E4D7;
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+}
+.chatbutton {
+  background-color: #3C86C3;
+  color: #E5E4D7;
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+}
+/* Chat */
+.matchbutton {
+  background-color: #B6494A;
+  color: #E5E4D7;
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+}
+.messagedisplay {
+  width: 100%;
+  height: 440px;
+  margin-top: 10px;
+}
+.messageentry {
+  width: 84%;
+}
+/* Media Queries */
+@media only screen and (orientation: landscape) {
+  .horizontal {
+  display: flex;    
+  }
+  .juego {
+    display: flex;
+    align-items: center;
+  }
+  .back {
+    font-size: 1.2em;
+    position: absolute;
+    width: 40%;
+    height: 50px;
+    bottom: 20px;
+    left: 40px;
+  }
+  iframe {
+    width: auto;
+    height: 226px;
+  }
+  .date {
+    width: 25%
+  }
+  .team {
+    width: 25%
+  }
+  .location {
+    width: 50%
+  }
+}
