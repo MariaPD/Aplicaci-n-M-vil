@@ -1,9 +1,9 @@
 var vm = new Vue({
   el: "#appnysl",
   data: {
-    gameData: {},
-    chat: false,
+    gameData: {},    
     login: false,
+    database: firebase.database(),
     obj: {
       juegos: true,
       partido01: false,
@@ -19,6 +19,7 @@ var vm = new Vue({
       partido15: false,
       partido16: false,
       partido17: false,
+      chat: false
     }
   },
   methods: {
@@ -49,16 +50,54 @@ var vm = new Vue({
       arr.filter(game => game !== screen)
         .forEach(game => this.obj[game] = false);
     },
-    botonChat() {
+
+/*    botonChat() {
       this.chat = true
       this.obj = false
-    }
+    },*/
+/*    botonGames() {
+      this.chat = false
+      this.obj.juegos = true
+    },*/
+
+    botonEnviar: function () {
+      var mensaje = document.getElementById('entry').value;
+      this.database.ref('mensajes').push({
+        message: mensaje
+      });
+      document.getElementById('entry').value = "";
+    },
+
+    recibirMensajes: function () {
+      this.database.ref('mensajes').on('child_added', function (data) {
+        console.log(data.val().message);
+        document.getElementById('message').innerHTML += '<p>' + data.val().message + '</p><br>';
+      })
+    },
+
+    loginGoogle() {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        var token = result.credential.accessToken;
+        var user = result.user;
+      }).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        var email = error.email;
+        var credential = error.credential;
+      });
+    },
+    //        logoutGoogle() {
+    //          firebase.auth().signOut(this.provider);
+    //        }
 
   },
-
-  mounted() {
-    this.obtenerJuegos();
-  }
+    mounted() {
+      this.obtenerJuegos();
+      this.recibirMensajes();
+     /* this.loginGoogle();*/
+/*            this.logoutGoogle();*/
+    },
 })
 
 //
